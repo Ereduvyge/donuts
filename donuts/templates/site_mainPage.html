@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Главная Страница</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/site_mainPage.css' %}">
+  </head>
+  <body>
+    <div id="head">ПОНЧИКИ ГОМЕРА</div>
+    {% if firstDonuts %}
+      <ul>
+    {% for Donut in firstDonuts %}
+        <li>
+          <div>
+            <img src="{{Donut.image.url}}">
+            <p id="name"><a href="/donuts/{{Donut.nameID}}/">{{Donut.name}}</a></p>
+            <p id="price">{{Donut.price}}</p>
+          </div>
+        </li>
+    {% endfor %}
+      </ul>
+    {% endif %}
+  </body>
+</html>

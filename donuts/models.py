@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here
 
 class Donut(models.Model):
+    nameID=models.CharField(max_length=30, primary_key=True)
     price=models.FloatField()
     name=models.CharField(max_length=30)
     onSale=models.BooleanField()
